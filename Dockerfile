@@ -10,6 +10,7 @@ RUN apk add --update krb5-libs && \
                      fluent-plugin-influxdb \
                      fluent-plugin-rewrite-tag-filter \
                      fluent-plugin-record-modifier \
+                     fluent-plugin-juniper-telemetry \
                      zookeeper && \
     sudo gem sources --clear-all && \
     apk del .build-deps && \
