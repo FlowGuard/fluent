@@ -4,7 +4,7 @@ FROM fluent/fluentd:latest
 # you may customize including plugins as you wish
 
 RUN apk add --update krb5-libs && \
-    apk add --update --virtual .build-deps libffi-dev && \
+    apk add --update --virtual .build-deps libffi-dev \
         sudo build-base ruby-dev && \
     sudo gem install fluent-plugin-kafka \
                      fluent-plugin-influxdb \
