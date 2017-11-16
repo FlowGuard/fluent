@@ -12,6 +12,7 @@ RUN apk add --update krb5-libs && \
                      fluent-plugin-record-modifier \
                      fluent-plugin-juniper-telemetry \
                      fluent-plugin-snmp \
+                     fluent-plugin-elasticsearch \
                      bigdecimal \
                      zookeeper && \
     sudo gem sources --clear-all && \
