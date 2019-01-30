@@ -19,4 +19,4 @@ RUN apk add --update krb5-libs && \
     sudo gem sources --clear-all && \
     apk del .build-deps && \
     rm -rf /var/cache/apk/* \
-           /home/fluent/.gem/ruby/2.3.0/cache/*.gem
+           /usr/lib/ruby/gems/2.5.0/cache
