@@ -1,4 +1,4 @@
-FROM fluent/fluentd:latest
+FROM fluent/fluentd:v1.3
 
 # below RUN includes plugin as examples elasticsearch is not required
 # you may customize including plugins as you wish
@@ -13,6 +13,7 @@ RUN apk add --update krb5-libs && \
                      fluent-plugin-juniper-telemetry \
                      fluent-plugin-snmp \
                      fluent-plugin-elasticsearch \
+                     fluent-plugin-retag \
                      bigdecimal \
                      zookeeper && \
     sudo gem sources --clear-all && \
