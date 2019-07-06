@@ -3,7 +3,7 @@ USER root
 # below RUN includes plugin as examples elasticsearch is not required
 # you may customize including plugins as you wish
 
-RUN apk add --update krb5-libs && \
+RUN apk add --update krb5-libs snappy && \
     apk add --update --virtual .build-deps libffi-dev \
         sudo build-base ruby-dev snappy-dev build-base libexecinfo automake autoconf libtool && \
     sudo gem install fluent-plugin-kafka \
