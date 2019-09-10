@@ -17,7 +17,8 @@ RUN apk add --update krb5-libs snappy && \
                      bigdecimal \
                      zookeeper \
                      snappy \
-                     extlz4 && \
+                     extlz4 \
+                     fluent-plugin-gelf-hs && \
     sudo gem sources --clear-all && \
     apk del .build-deps && \
     rm -rf /var/cache/apk/* \
