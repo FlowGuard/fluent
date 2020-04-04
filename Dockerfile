@@ -1,4 +1,4 @@
-FROM fluent/fluentd:v1.6
+FROM fluent/fluentd:v1.10
 USER root
 # below RUN includes plugin as examples elasticsearch is not required
 # you may customize including plugins as you wish
@@ -23,3 +23,5 @@ RUN apk add --update krb5-libs snappy && \
     apk del .build-deps && \
     rm -rf /var/cache/apk/* \
            /usr/lib/ruby/gems/2.5.0/cache
+
+ADD plugins /fluentd/plugins
