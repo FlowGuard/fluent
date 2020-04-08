@@ -12,6 +12,9 @@ module Fluent::Plugin
     desc "TTL key"
     config_param :ttl_key, :string, default: 'ttl'
 
+    desc "TTL distance"
+    config_param :ttl_value, :string, default: 'distance'
+
     desc "Value field"
     config_param :value_field, :string, default: 'count'
 
@@ -20,13 +23,23 @@ module Fluent::Plugin
       # do the usual configuration here
     end
 
-    def expand(tag, time, record, es)
+    def ttl_distance(ttl)
+      if ttl > 128
+        return 255 - ttl
+      elsif ttl > 64
+        return 128 - ttl
+      else
+        return 64 - ttl
+      end
+    end
 
+    def expand(tag, time, record, es)
       if record["type"].end_with?("TTL_SUM")
         if record.key?(@ttl_map_key)
           record[@ttl_map_key].each { |key, value|
             new_record = record.clone
             new_record[@ttl_key] = key
+            new_record[@ttl_value] = ttl_distance(key.to_i)
             new_record[@value_field] = value
             new_record.delete(@ttl_map_key)
             es.add(time, new_record)
