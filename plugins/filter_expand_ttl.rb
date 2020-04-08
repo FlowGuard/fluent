@@ -34,7 +34,7 @@ module Fluent::Plugin
     end
 
     def expand(tag, time, record, es)
-      if record["type"].end_with?("TTL_SUM")
+      if record.key?("type") and record["type"].end_with?("TTL_SUM")
         if record.key?(@ttl_map_key)
           record[@ttl_map_key].each { |key, value|
             new_record = record.clone
