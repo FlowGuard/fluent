@@ -1,4 +1,4 @@
-FROM fluent/fluentd:v1.10
+FROM fluent/fluentd:v1.12
 USER root
 # below RUN includes plugin as examples elasticsearch is not required
 # you may customize including plugins as you wish
