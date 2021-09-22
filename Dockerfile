@@ -1,11 +1,11 @@
-FROM fluent/fluentd:latest
-
+FROM fluent/fluentd:v1.12
+USER root
 # below RUN includes plugin as examples elasticsearch is not required
 # you may customize including plugins as you wish
 
-RUN apk add --update krb5-libs && \
+RUN apk add --update krb5-libs snappy && \
     apk add --update --virtual .build-deps libffi-dev \
-        sudo build-base ruby-dev && \
+        sudo build-base ruby-dev snappy-dev build-base libexecinfo automake autoconf libtool && \
     sudo gem install fluent-plugin-kafka \
                      fluent-plugin-influxdb \
                      fluent-plugin-rewrite-tag-filter \
@@ -13,9 +13,15 @@ RUN apk add --update krb5-libs && \
                      fluent-plugin-juniper-telemetry \
                      fluent-plugin-snmp \
                      fluent-plugin-elasticsearch \
+                     fluent-plugin-retag \
                      bigdecimal \
-                     zookeeper && \
+                     zookeeper \
+                     snappy \
+                     extlz4 \
+                     fluent-plugin-gelf-hs && \
     sudo gem sources --clear-all && \
     apk del .build-deps && \
     rm -rf /var/cache/apk/* \
-           /home/fluent/.gem/ruby/2.3.0/cache/*.gem
+           /usr/lib/ruby/gems/2.5.0/cache
+
+ADD plugins /fluentd/plugins
