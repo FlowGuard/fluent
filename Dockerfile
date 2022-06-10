@@ -14,6 +14,7 @@ RUN apk add --update krb5-libs snappy && \
                      fluent-plugin-snmp \
                      fluent-plugin-elasticsearch \
                      fluent-plugin-retag \
+                     fluent-plugin-datadog \
                      bigdecimal \
                      zookeeper \
                      snappy \
