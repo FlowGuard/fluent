@@ -12,6 +12,7 @@ RUN apk add --update krb5-libs snappy && \
                      fluent-plugin-record-modifier \
                      fluent-plugin-juniper-telemetry \
                      fluent-plugin-snmp \
+                     elasticsearch:7.6.0 \
                      fluent-plugin-elasticsearch \
                      fluent-plugin-retag \
                      fluent-plugin-datadog \
