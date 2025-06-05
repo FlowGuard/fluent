@@ -10,11 +10,13 @@ RUN apk add --update krb5-libs snappy && \
                      fluent-plugin-influxdb \
                      fluent-plugin-rewrite-tag-filter \
                      fluent-plugin-record-modifier \
-                     securerandom:0.3.2 \
+                     activesupport:7.0.3 \
                      fluent-plugin-juniper-telemetry \
                      fluent-plugin-snmp \
                      elasticsearch:7.6.0 \
-                     fluent-plugin-elasticsearch \
+                     excon:0.92.3 \
+                     faraday:1.10.0 \
+                     fluent-plugin-elasticsearch:5.2.2 \
                      fluent-plugin-retag \
                      fluent-plugin-datadog \
                      bigdecimal \
@@ -25,6 +27,6 @@ RUN apk add --update krb5-libs snappy && \
     sudo gem sources --clear-all && \
     apk del .build-deps && \
     rm -rf /var/cache/apk/* \
-           /usr/lib/ruby/gems/2.5.0/cache
+           /usr/lib/ruby/gems/2.7.0/cache
 
 ADD plugins /fluentd/plugins
