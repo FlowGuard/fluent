@@ -1,4 +1,4 @@
-FROM fluent/fluentd:v1.12
+FROM fluent/fluentd:v1.15
 USER root
 # below RUN includes plugin as examples elasticsearch is not required
 # you may customize including plugins as you wish
@@ -23,6 +23,7 @@ RUN apk add --update krb5-libs snappy && \
                      zookeeper \
                      snappy \
                      extlz4 \
+                     fluent-plugin-opentelemetry \
                      fluent-plugin-gelf-hs && \
     sudo gem sources --clear-all && \
     apk del .build-deps && \
