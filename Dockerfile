@@ -7,7 +7,7 @@ RUN apk add --update krb5-libs snappy && \
     apk add --update --virtual .build-deps libffi-dev \
         sudo build-base ruby-dev snappy-dev build-base automake autoconf libtool && \
     fluent-gem install --no-document \
-                     fluent-plugin-kafka \
+                     fluent-plugin-kafka:0.18.1 \
                      fluent-plugin-influxdb \
                      fluent-plugin-rewrite-tag-filter \
                      fluent-plugin-record-modifier \
@@ -20,7 +20,7 @@ RUN apk add --update krb5-libs snappy && \
                      fluent-plugin-elasticsearch:5.2.2 \
                      fluent-plugin-retag \
                      fluent-plugin-datadog \
-                     bigdecimal:3.1.3 \
+                     bigdecimal \
                      zookeeper \
                      snappy \
                      extlz4 \
