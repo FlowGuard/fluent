@@ -11,7 +11,7 @@ RUN apk add --update krb5-libs snappy && \
                      fluent-plugin-influxdb \
                      fluent-plugin-rewrite-tag-filter \
                      fluent-plugin-record-modifier \
-                     activesupport:7.0.3 \
+                     activesupport:7.0.4 \
                      fluent-plugin-juniper-telemetry \
                      fluent-plugin-snmp \
                      elasticsearch:7.6.0 \
@@ -20,7 +20,7 @@ RUN apk add --update krb5-libs snappy && \
                      fluent-plugin-elasticsearch:5.2.2 \
                      fluent-plugin-retag \
                      fluent-plugin-datadog \
-                     bigdecimal \
+                     bigdecimal:3.1.3 \
                      zookeeper \
                      snappy \
                      extlz4 \
